@@ -10,7 +10,7 @@ function(tab, mode="both", empty.col=FALSE, lang="en-US")
  {
   tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
-   colnames(tab.res) <- c("Cascalho","Areia","Silte","Argila","Matacão","Calhau","Seixos","Grânulo","Areia.Muito.Grossa",
+   colnames(tab.res) <- c("Cascalho","Areia","Silte","Argila","Matacão","Calhau","Seixo","Grânulo","Areia.Muito.Grossa",
 "Areia.Grossa","Areia.Média","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.Médio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.Média")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e")
    colnames(tab.res) <- c("Gravel","Sand","Silt","Clay","Boulder","Cobble","Pebble","Granules","Very.Coarse.Sand",
@@ -30,7 +30,7 @@ function(tab, mode="both", empty.col=FALSE, lang="en-US")
  {
   tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p") 
-   colnames(tab.res) <- c("Matacão","Calhau","Seixos","Grânulo","Areia.Muito.Grossa",
+   colnames(tab.res) <- c("Matacão","Calhau","Seixo","Grânulo","Areia.Muito.Grossa",
 "Areia.Grossa","Areia.Média","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.Médio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.Média")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e") 
    colnames(tab.res) <- c("Boulder","Cobble","Pebble","Granules","Very.Coarse.Sand",

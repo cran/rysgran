@@ -2,13 +2,13 @@
 \alias{rysgran-package}
 \alias{rysgran}
 \docType{package}
-\title{Grain size analysis, textural classifications and distribuition of uncosolidated sediments.}
-\description{  This package is a port to R of the SysGran program, written in Delphi by Camargo (2006). It contains functions for the analysis of grain size samples (only in phi scale in this version) based on various methods, like Folk & Ward (1957) and Methods of Moments (Tanner, 1995), among others; textural classifications and distribuition of uncosolidated sediments are shown in histograms, bivariated plots and ternary diagrams of Shepard (1954) and Pejrup (1988). English and portuguese languages are supported in outputs.  }
+\title{Grain size analysis, textural classifications and distribution of unconsolidated sediments  }
+\description{  This package is a port to R of the SysGran program, written in Delphi by Camargo (2006). It contains functions for the analysis of grain size samples (only in phi scale in this version) based on various methods, like Folk & Ward (1957) and Methods of Moments (Tanner, 1995), among others; textural classifications and distribuition of uncosolidated sediments are shown in histograms, bivariated plots and ternary diagrams of Shepard (1954) and Pejrup (1988). English and Portuguese languages are supported in outputs  }
 \details{
 \tabular{ll}{
 Package: \tab rysgran\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
+Version: \tab 1.1\cr
 Date: \tab 2011-03-07\cr
 License: \tab GPL (>= 2.0)\cr
 LazyLoad: \tab yes\cr
@@ -19,7 +19,7 @@ LazyLoad: \tab yes\cr
   Mauricio G. Camargo (\email{camargo.ufpr@gmail.com})\cr
   Leonardo Sandrini (\email{leonardosandrini@gmail.com})
 
-Maintainer:   Mauricio G. Camargo (\email{camargo.ufpr@gmail.com})
+Maintainer:   Eliandro R. Gilbert (\email{eliandrogilbert@gmail.com})
 }
 \references{
 - Folk, R. L. and Ward W. C. (1957) Brazos river bar: A study in the significance of grain size parameters. \emph{Journal of Sed. Petrol.}, \bold{27}: 3--27.\cr
@@ -71,8 +71,7 @@ rysgran.hist (tab , ordered = TRUE)
 library (rysgran)
 data (camargo2001)
 tab <- camargo2001
-rys <- gran.stats (tab, method="folk", verbal=FALSE)
-rysgran.plot ("mean" , "sort" , data = rys)
+rysgran.plot ("mean" , "sort" , data = tab, method="folk")
 ##
 ##
 #Example 5

@@ -11,7 +11,7 @@ rysgran.hist(tab, subset = NULL, which = NULL, ordered = TRUE)
   \item{which}{  factor from \code{subset} object argument. Default is NULL  }
   \item{ordered}{  logical. If TRUE the panels order is on the order of row in \code{tab}, if FALSE the order is alphabetical. Default is TRUE  }
 }
-\details{  rysgran.hist is the only function in \code{\link{rysgran}} package which uses the package \code{lattice}. Users familiarized with lattice will have no problem using the function \code{\link{rysgran.hist}}. the matrix of particle size used in data entry must contain the first line of phi classes (logarithmic scale), each following line should contain the weights of a sample. For further details on the structure of the input table see data example \code{camargo2001} included in this package  }
+\details{  rysgran.hist is the only function in \code{\link{rysgran}} package which uses the package \code{lattice}. Users familiarized with lattice will have no problem using the function \code{\link{rysgran.hist}}. the particle size matrix used in data entry must contain the first line of phi classes (logarithmic scale), each following line should contain the weights of a sample. For further details on the structure of the input table see data example \code{camargo2001} included in this package  }
 \value{  return multiples histograms  }
 \author{
   Leonardo Sandrini (\email{leonardosandrini@gmail.com})\cr

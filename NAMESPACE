@@ -1,0 +1,12 @@
+export(
+  class.percent,
+  gran.stats,
+  rysgran.hist,
+  rysgran.plot,
+  rysgran.ternary
+)  
+
+import(
+  soiltexture,
+  lattice
+)

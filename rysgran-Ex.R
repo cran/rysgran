@@ -358,8 +358,8 @@ nameEx("rysgran-package")
 flush(stderr()); flush(stdout())
 
 ### Name: rysgran-package
-### Title: Grain size analysis, textural classifications and distribuition
-###   of uncosolidated sediments.
+### Title: Grain size analysis, textural classifications and distribution
+###   of unconsolidated sediments
 ### Aliases: rysgran-package rysgran
 ### Keywords: package
 
@@ -395,8 +395,7 @@ rysgran.hist (tab , ordered = TRUE)
 library (rysgran)
 data (camargo2001)
 tab <- camargo2001
-rys <- gran.stats (tab, method="folk", verbal=FALSE)
-rysgran.plot ("mean" , "sort" , data = rys)
+rysgran.plot ("mean" , "sort" , data = tab, method="folk")
 ##
 ##
 #Example 5
@@ -469,7 +468,7 @@ nameEx("rysgran.plot")
 flush(stderr()); flush(stdout())
 
 ### Name: rysgran.plot
-### Title: Generates a Bivariate Plot
+### Title: Generates a Bivariated Plot
 ### Aliases: rysgran.plot
 
 ### ** Examples
@@ -478,26 +477,24 @@ flush(stderr()); flush(stdout())
 library(rysgran)
 data(camargo2001)
 tab<-camargo2001
-rys <- gran.stats(tab , method="folk" , verbal=FALSE , lang="en-US")
-rysgran.plot ("mean" , "sort" , data=rys)
+rysgran.plot ("mean" , "sort" , data=tab, method="folk")
 #
 # Using show.labels
 library(rysgran)
 data(camargo2001)
 tab<-camargo2001
-rys <- gran.stats(tab , method="folk" , verbal=FALSE , lang="en-US")
-rysgran.plot("mean" , "sort" , data=rys , lang="en-US",
-	show.labels = TRUE, col.labels = "blue",
-	labels = NULL, cex.labels = 0.8)
+rysgran.plot("mean" , "sort" , data=tab , method="folk",
+	lang="en-US", show.labels = TRUE,
+	col.labels = "blue", labels = NULL, cex.labels = 0.8)
 #
 # Skewness and Kurtosis with label.points
 library(rysgran)
 data(camargo2001)
 tab<-camargo2001
-rys <- gran.stats(tab , method="folk" , verbal=FALSE , lang="en-US")
-rysgran.plot ("skew" , "kurt" , data=rys , lang="en-US",
-	show.labels = FALSE, labels = NULL, label.points = TRUE, 
-	pch = 19, col.labels = "black", col = "blue", cex.labels = 0.8, 
+rysgran.plot ("skew" , "kurt" , data=tab , method="folk",
+	lang="en-US", show.labels = FALSE, labels = NULL,
+	label.points = TRUE, pch = 19, col.labels = "black",
+	col = "blue", cex.labels = 0.8, 
 	cex.points = 1, pos=1)
 #
 # Sorting and Kurtosis with Mean as bubbles
@@ -505,20 +502,20 @@ library(rysgran)
 data(camargo2001)
 tab<-camargo2001
 rys <- gran.stats(tab , method="folk" , verbal=FALSE , lang="en-US")
-rysgran.plot ("sort" , "kurt" , data=rys , lang="en-US",
-	show.labels = FALSE, labels = NULL, label.points = TRUE,
-	pch = 21, col.labels = "white", col = "red", cex.labels = 0.8, 
-	pos=NULL, z=rys$Mean, z.cex.range=c(2.5,6), bg="red")
+rysgran.plot ("sort" , "kurt" , data=tab, method="folk",
+	lang="en-US", show.labels = FALSE, labels = NULL,
+	label.points = TRUE, pch = 21, col.labels = "white",
+	col = "red", cex.labels = 0.8, pos=NULL, z=rys$Mean,
+	z.cex.range=c(2.5,6), bg="red")
 #
 # With legend
 library(rysgran)
 data(camargo2001)
 tab<-camargo2001
-rys <- gran.stats(tab , method="folk" , verbal=FALSE , lang="en-US")
 months <- as.factor(rep(c("Jan","Mar","May","Jul","Sep"),each=7))
 months <- factor(months, levels = c("Jan","Mar","May","Jul","Sep"))
-rysgran.plot ("sort" , "kurt",  data = rys, lang="en-US",
-	show.labels = FALSE, label.points = TRUE, 
+rysgran.plot ("sort" , "kurt",  data = tab, method="folk",
+	lang="en-US",show.labels = FALSE, label.points = TRUE, 
 	pch =  c(15,17,18,19,20)[months], 
 	col.labels = "black", labels = months, cex.labels = 0.8,
 	col = c("black","brown","blue","red","green")[months],
@@ -535,7 +532,7 @@ nameEx("rysgran.ternary")
 flush(stderr()); flush(stdout())
 
 ### Name: rysgran.ternary
-### Title: Generates the Ternary Diagram of Shepard and Pejrup
+### Title: Generates the Ternary Diagrams of Shepard and Pejrup
 ### Aliases: rysgran.ternary
 
 ### ** Examples

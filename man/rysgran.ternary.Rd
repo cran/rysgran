@@ -1,6 +1,6 @@
 \name{rysgran.ternary}
 \alias{rysgran.ternary}
-\title{Generates the Ternary Diagram of Shepard and Pejrup}
+\title{Generates the Ternary Diagrams of Shepard and Pejrup}
 \description{  Uses data from percentages of soil textures to generate ternary diagrams of Shepard (Shepard, 1954) and Pejrup (Pejrup, 1988)  }
 \usage{
 rysgran.ternary(x = NULL, method = "shepard", lang = "en-US", 
@@ -15,9 +15,9 @@ rysgran.ternary(x = NULL, method = "shepard", lang = "en-US",
 \arguments{
   \item{x}{  a 3 columns matrix with percentages of Sand, Silt and Clay which should be passed by \code{\link{class.percent}} function. The sum of each row must be 100 or 1, otherwise there may be distortions in the position of the points  }
   \item{method}{  shape of ternary diagram to be created. Should be "shepard" or "pejrup". Default is "shepard"  }
-  \item{lang}{  language . Should be english ("en-US", "en-GR", "eng", "e"), or portuguese ("pt-BR", "pt-PT", "port", "p"). The default is "en-US"  }
-  \item{main}{  an overall title for the plot. If NULL it will be generated an automatic title according to language chosen. Defaut is NULL  }
-  \item{z}{  vector with the same length of \code{x} and \code{y} whoose value must be used to define the points expansion factor and color (bubble plot). If NULL, a simple plot is drawn (no 'bubbles'). Default is "NULL"  }
+  \item{lang}{  language . Should be English ("en-US", "en-GR", "eng", "e"), or Portuguese ("pt-BR", "pt-PT", "port", "p"). The default is "en-US"  }
+  \item{main}{  an overall title for the plot. If NULL it will be generated an automatic title according to language chosen. Default is NULL  }
+  \item{z}{  vector with the same length of \code{x} and \code{y} whose value must be used to define the points expansion factor and color (bubble plot). If NULL, a simple plot is drawn (no 'bubbles'). Default is "NULL"  }
   \item{show.labels}{  logical. If TRUE the points are replaced by text passed by \code{labels} argument. Default is FALSE  }
   \item{label.points}{  logical. if TRUE text is added, provided by the argument \code{labels}, with the points on the graph. the text position to the point should be changed by argument \code{pos}. \code{labels.points} will be automatically FALSE if \code{show.labels} is TRUE. The default is FALSE  }
   \item{labels}{  a character vector or expression specifying the text to be written. If NULL \code{labels} will be the row names of the \code{data} argument. Default is NULL  }
@@ -26,7 +26,7 @@ rysgran.ternary(x = NULL, method = "shepard", lang = "en-US",
   \item{show.lines}{  logical. If TRUE the lines that separate the textural classes are displayed. Default is TRUE  }
   \item{show.legend}{  logical. If TRUE the legend of textural classes are displayed in the top left according with the argument \code{method}. Should be used with the argument \code{show.names}. Default is TRUE  }
   \item{show.grid}{  logical. If TRUE display grid lines in the ternary diagram. Default is FALSE  }
-  \item{z.cex.range}{  Vector of 2 numericals. Minimum and maximum 'cex' of the bubbles plotted if 'z' is not NULL. Replace the argument \code{cex.points}. Default is "(1,3)"  }
+  \item{z.cex.range}{  Vector of length 2. Minimum and maximum 'cex' of the bubbles plotted if 'z' is not NULL. Replace the argument \code{cex.points}. Default is "(1,3)"  }
   \item{cex.labels}{  character size of text provided by the argument \code{labels} added with the point (or replacing it) in case \code{show.label}, \code{label.points} or \code{z} arguments are defined. Default is "1"  }
   \item{cex.points}{  character size of points provided by the argument \code{pch}. Default is "1"  }
   \item{cex.axis}{  character expansion for axis labels. Default is "1"  }

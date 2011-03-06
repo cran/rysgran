@@ -11,8 +11,8 @@ gran.stats(tab, method = "folk", verbal = FALSE, lang = "en-US")
   \item{verbal}{  logical. If TRUE, columns will be added with verbal classification of statistical paramenters. Default is TRUE  }
   \item{lang}{  language . Could be english ("en-US", "en-GR", "eng", "e"), or portuguese ("pt-BR", "pt-PT", "port", "p"). The default is "en-US"  }
 }
-\details{  The matrix of particle size used in data entry must contain the first line of phi classes (logarithmic scale), each following line should contain the weights of a sample. For further details on the structure of the input table see data example \code{camargo2001} included in this package  }
-\value{  An array of variable number of dimensions, depending on the chosen arguments, with the statistical paramenters for each sample. The values of this matrix should be used in \code{\link{rysgran.plot}} function, available in this package  }
+\details{  The particle size matrix used in data entry must contain the first line of phi classes (logarithmic scale), each following line should contain the weights of a sample. For further details on the structure of the input table see data example \code{camargo2001} included in this package  }
+\value{  An array of variable number of dimensions, depending on the chosen arguments, with the statistical parameters for each sample. The values of this matrix should be used in \code{\link{rysgran.plot}} function, available in this package  }
 \references{
 - Folk, R. L. and Ward W. C. (1957) Brazos river bar: A study in the significance of grain size parameters. \emph{Journal of Sed. Petrol.}, \bold{27}: 3--27.\cr
 
