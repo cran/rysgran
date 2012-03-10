@@ -1,8 +1,12 @@
 class.percent <-
-function(tab, mode="both", empty.col=FALSE, lang="en-US")
+function(data, mode="both", empty.col=FALSE, lang="en-US")
 {
- clz <- as.numeric(tab[1,]) 
- tab <- tab[2:nrow(tab),]
+ clz <- as.numeric(data[1,])
+ if (sum(clz) > 70){
+   clz<-(-log2(clz/1000))
+ }
+
+ tab <- data[2:nrow(data),]
  tab.res <- as.data.frame(tab[,1],row.names=rownames(tab)) 
  m<-0 
 
@@ -10,8 +14,8 @@ function(tab, mode="both", empty.col=FALSE, lang="en-US")
  {
   tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
-   colnames(tab.res) <- c("Cascalho","Areia","Silte","Argila","Matacão","Calhau","Seixo","Grânulo","Areia.Muito.Grossa",
-"Areia.Grossa","Areia.Média","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.Médio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.Média")
+   colnames(tab.res) <- c("Cascalho","Areia","Silte","Argila","Matac\u00E3o","Calhau","Seixo","Gr\u00E2nulo","Areia.Muito.Grossa",
+"Areia.Grossa","Areia.M\u00E9dia","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.M\u00E9dio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.M\u00E9dia")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e")
    colnames(tab.res) <- c("Gravel","Sand","Silt","Clay","Boulder","Cobble","Pebble","Granules","Very.Coarse.Sand",
 "Coarse.Sand","Medium.Sand","Fine.Sand","Very.Fine.Sand","Coarse.Silt","Medium.Silt","Fine.Silt","Very.Fine.Silt","Coarse.Clay","Medium.Clay")
@@ -30,8 +34,8 @@ function(tab, mode="both", empty.col=FALSE, lang="en-US")
  {
   tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p") 
-   colnames(tab.res) <- c("Matacão","Calhau","Seixo","Grânulo","Areia.Muito.Grossa",
-"Areia.Grossa","Areia.Média","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.Médio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.Média")
+   colnames(tab.res) <- c("Matac\u00E3o","Calhau","Seixo","Gr\u00E2nulo","Areia.Muito.Grossa",
+"Areia.Grossa","Areia.M\u00E9dia","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.M\u00E9dio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.M\u00E9dia")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e") 
    colnames(tab.res) <- c("Boulder","Cobble","Pebble","Granules","Very.Coarse.Sand",
 "Coarse.Sand","Medium.Sand","Fine.Sand","Very.Fine.Sand","Coarse.Silt","Medium.Silt","Fine.Silt","Very.Fine.Silt","Coarse.Clay","Medium.Clay")

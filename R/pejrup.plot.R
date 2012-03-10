@@ -82,7 +82,7 @@ b = c("10%","","","","50%","","","","90%"))
 "C - 10-50%","D - 00-10%"), 
 lty=0, col = "black",horiz=FALSE, cex=1, box.lty=0)
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
-   legend("topleft",c("Hidrodinâmica","I - Baixa","II - Moderada",
+   legend("topleft",c("Hidrodin\u00E2mica","I - Baixa","II - Moderada",
 "II - Alta", "IV - Muito alta","","Areia","A - 90-100%","B - 50-90%",
 "C - 10-50%","D - 00-10%"), 
 lty=0, col = "black",horiz=FALSE, cex=1, box.lty=0)

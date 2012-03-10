@@ -3,7 +3,8 @@ export(
   gran.stats,
   rysgran.hist,
   rysgran.plot,
-  rysgran.ternary
+  rysgran.ternary,
+  legend.bubbles
 )  
 
 import(

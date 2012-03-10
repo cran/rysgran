@@ -42,6 +42,7 @@ rysgran.ternary(x = NULL, method = "shepard", lang = "en-US",
   \item{lty.grid}{  type of grid line case the argument \code{show.grid} is TRUE. Default is "3"  }
   \item{\dots}{  further graphical parameters  }
 }
+\details{  When \code{z} argument is used to draw bubble plots the \code{\link{legend.bubbles}} function should be used to draw the legend accordingly  }
 \value{  Display a triangular plot  }
 \references{
 - Pejrup, M. (1988) The triangular diagram used for classification of estuarine sediments: a new approach. in: \emph{Tide-influenced sedimentary environments and facies}. BOER, P.L. ; GELDER, A. & NIO, S.D. (Eds). D. Reidel Publishing Company. Holland.\cr 
@@ -52,52 +53,51 @@ rysgran.ternary(x = NULL, method = "shepard", lang = "en-US",
   Eliandro R. Gilbert (\email{eliandrogilbert@gmail.com})
 }
 \note{  rysgran.ternary can only properly display one or more sets of three proportions (sand, silt and clay) that each sum to 1 (or percentages that sum to 100), otherwise they will not plot properly and the user will be notified. Samples with considerable amount of gravel are not properly plotted. rysgran.ternary is based on plotrix package and depends on soiltexture package  }
-\seealso{\code{\link{gran.stats}} , \code{\link{class.percent}} , \code{\link{rysgran.ternary}} , \code{\link{rysgran.hist}}}
+\seealso{\code{\link{gran.stats}} , \code{\link{class.percent}} , \code{\link{rysgran.ternary}} , \code{\link{rysgran.hist}}, \code{\link{legend.bubbles}}}
 \examples{
+
+library(rysgran)
+data(camargo2001)
+data(sed.phi)
+
 #Shepard diagram
-library(rysgran)
-data(camargo2001)
-tab<-camargo2001
-percent <- class.percent(tab, mode="total")
-rysgran.ternary  (x = percent[2:4], method = "shepard")
-#
+percent <- class.percent(camargo2001, mode="total")
+x<-percent[2:4] #choosing only the 'sand', 'silt' and 'clay' columns
+rysgran.ternary  (x, method = "shepard")
+
+
 #Pejrup diagram
-library(rysgran)
-data(camargo2001)
-tab<-camargo2001
-percent <- class.percent(tab, mode="total")
-rysgran.ternary  (x = percent[2:4], method = "pejrup")
-#
+percent <- class.percent(camargo2001, mode="total")
+x<-percent[2:4] #choosing only the 'sand', 'silt' and 'clay' columns
+rysgran.ternary  (x, method = "pejrup")
+
+
 #Shepard diagram with show.labels
-library(rysgran)
-data(camargo2001)
-tab<-camargo2001
-percent <- class.percent(tab, mode="total")
-rysgran.ternary (x = percent[2:4], method = "shepard",
-    z = NULL, show.labels = TRUE, label.points = FALSE,
-    labels = NULL, cex.labels = 0.8, cex.axis = 1, 
-    col.labels = "black", col.axis = "black")
-#
-#Shepard diagram with label.points
-library(rysgran)
-data(camargo2001)
-tab<-camargo2001
-percent <- class.percent(tab, mode="total")
-rysgran.ternary (x = percent[2:4], method = "shepard", 
-    z = NULL, label.points = TRUE, labels = NULL,
-    show.names = TRUE, show.legend = TRUE,  cex.labels = 0.8,
-    cex.points = 1.5, cex.axis = 1, cex.names = 0.8,
-    col.names = "gray", col = "black", col.labels = "black",  
-    pos = 1, pch = 20)
-#
-#Shepard diagram with Sorting as bubbles
-library(rysgran)
-data(camargo2001)
-tab<-camargo2001
-percent <- class.percent(tab, mode="total")
-rys <- gran.stats(tab , method="folk")
-rysgran.ternary (x = percent[2:4], method = "shepard",
-    z = rys$Sorting, label.points = FALSE, labels = NULL, 
-    z.cex.range = c(0.5,4), cex.labels = 0.8, cex.axis = 1, 
-    cex.names = 0.8, col = "blue", pos = 1, pch = 20)
+percent <- class.percent(camargo2001, mode="total")
+x<-percent[2:4]
+rysgran.ternary (x, method="shepard", show.labels = TRUE)
+
+
+#Pejrup diagram with Sorting as bubbles for different environments
+#Calculating the percentage of weight in each textural class
+percent <- class.percent(sed.phi, mode="total")
+x<-percent[2:4]
+
+# Calculating the grain size statistics
+rys <- gran.stats(sed.phi , method="folk")
+env<- as.factor(rep(c("River","Tidal Flat","Subtidal","Beach"),each=10))
+
+# Plotting
+rysgran.ternary (x, method = "pejrup",
+	z = rys$Sorting, z.cex.range = c(0.5,3), 
+	col = c("red","blue","black","brown")[env], pch = 19)
+
+# Plotting the legends
+legend.bubbles ("right", z=rys$Sorting , nleg=4, pch=21, col="black",
+	cex=1, z.cex.range=c(0.5,3), x.intersp=1.2, y.intersp=1.2,
+	digits=1, title="Sorting")
+
+legend ("topright", c("Beach","River","Subtidal","Tidal Flat"),
+	pch=15, col=c("red","blue","black","brown"))
+
 }

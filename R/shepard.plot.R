@@ -96,10 +96,10 @@ lty.grid = par("lty"))
 "10 - Sily sand","11 - Sandy silt","12 - Silt"), 
 lty=0, col = "black" ,horiz=FALSE, cex=0.9, box.lty=0)
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
-   legend("topleft",c("1 - Argila","2 - Argila arenosa","3 - Argila síltica",
-"4 - Argila síltico-arenosa","5 - Areia argilosa","6 - Areia síltico-argilosa",
+   legend("topleft",c("1 - Argila","2 - Argila arenosa","3 - Argila s\u00EDltica",
+"4 - Argila s\u00EDltico-arenosa","5 - Areia argilosa","6 - Areia s\u00EDltico-argilosa",
 "7 - Silte argilo-arenoso","8 - Silte argiloso","9 - Areia",
-"10 - Areia síltica","11 - Silte arenoso","12 - Silte"), 
+"10 - Areia s\u00EDltica","11 - Silte arenoso","12 - Silte"), 
 lty=0, col = "black" ,horiz=FALSE, cex=0.9, box.lty=0)
  }
 }

@@ -1,10 +1,15 @@
 rysgran.hist <-
-function (tab, subset = NULL, which = NULL, ordered=TRUE) 
+function (data, subset = NULL, which = NULL, ordered=TRUE) 
 {
- phi <- tab[1, ]
+ phi <- data[1, ]
+ if (sum(phi) > 70){
+   phi<-(-log2(phi/1000))
+   phi<-round(phi,digits=1)
+ }
+
  phi <- as.vector(phi, mode = "numeric")
  phi <- factor(phi) 
- Weight <- as.matrix(tab[-1,]) 
+ Weight <- as.matrix(data[-1,]) 
  colnames(Weight) <- phi
  Sum <- numeric(nrow(Weight))
  for(i in 1:length(Sum)) Sum[i] <- sum(Weight[i,]) 

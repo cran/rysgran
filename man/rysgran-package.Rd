@@ -3,13 +3,15 @@
 \alias{rysgran}
 \docType{package}
 \title{Grain size analysis, textural classifications and distribution of unconsolidated sediments  }
-\description{  This package is a port to R of the SysGran program, written in Delphi by Camargo (2006). It contains functions for the analysis of grain size samples (only in phi scale in this version) based on various methods, like Folk & Ward (1957) and Methods of Moments (Tanner, 1995), among others; textural classifications and distribuition of uncosolidated sediments are shown in histograms, bivariated plots and ternary diagrams of Shepard (1954) and Pejrup (1988). English and Portuguese languages are supported in outputs  }
+\description{  This package is a port to R of the SysGran program, written in Delphi by Camargo (2006). It contains functions for the analysis of grain size samples based on various methods, like Folk & Ward (1957) and Methods of Moments (Tanner, 1995), among others; textural classifications and distribution of unconsolidated sediments are shown in histograms, bivariated plots and ternary diagrams of Shepard (1954) and Pejrup (1988).\cr
+Versions prior to 2.0 supported only data input in logarithmic scale (phi intervals). Now rysgran can handle both logarithmic and geometric scale data (micrometers intervals).\cr
+English and Portuguese languages are supported in outputs  }
 \details{
 \tabular{ll}{
 Package: \tab rysgran\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2011-03-07\cr
+Version: \tab 2.0\cr
+Date: \tab 2012-03-10\cr
 License: \tab GPL (>= 2.0)\cr
 LazyLoad: \tab yes\cr
 }
@@ -22,6 +24,8 @@ LazyLoad: \tab yes\cr
 Maintainer:   Eliandro R. Gilbert (\email{eliandrogilbert@gmail.com})
 }
 \references{
+- Camargo, M. G. (2006) SysGran: um sistema de codigo aberto para analises granulometricas do sedimento. \emph{Revista Brasileira de Geociencias}, \bold{345}: 345--352.\cr
+
 - Folk, R. L. and Ward W. C. (1957) Brazos river bar: A study in the significance of grain size parameters. \emph{Journal of Sed. Petrol.}, \bold{27}: 3--27.\cr
 
 - McCammon, R. B. (1962) Efficiencies of percentile measurements for describing the mean size and sorting of sedimentary particles. \emph{Journal of Geology}, \bold{70}: 453--465.\cr
@@ -41,44 +45,34 @@ Maintainer:   Eliandro R. Gilbert (\email{eliandrogilbert@gmail.com})
 \code{\link{gran.stats}} , \code{\link{class.percent}} , \code{\link{rysgran.hist}} , \code{\link{rysgran.plot}} , \code{\link{rysgran.ternary}}
 }
 \examples{
-#Example 1
-#grain size analysis using
-#Folk & Ward with verbal classification
+
 library (rysgran)
 data (camargo2001)
-tab <- camargo2001
-gran.stats (tab, method="folk" , verbal=TRUE)
-##
-##
-#Example 2
+data(sed.phi)
+data(sed.metric)
+
+#grain size analysis using Folk & Ward with verbal classification
+gran.stats (camargo2001, method="folk" , verbal=TRUE)
+
+
+#grain size analysis using Method of Moments with verbal classification
+gran.stats (sed.metric, method="moment" , verbal=TRUE)
+
+
 #weight percentages
-library (rysgran)
-data (camargo2001)
-tab <- camargo2001
-class.percent (tab, mode="total", empty.col=FALSE)
-##
-##
-#Example 3
+class.percent (camargo2001, mode="total")
+
+
 #histograms
-library (rysgran)
-data (camargo2001)
-tab <- camargo2001
-rysgran.hist (tab , ordered = TRUE)
-##
-##
-#Example 4
+rysgran.hist (camargo2001)
+
+
 #bivariated plot
-library (rysgran)
-data (camargo2001)
-tab <- camargo2001
-rysgran.plot ("mean" , "sort" , data = tab, method="folk")
-##
-##
-#Example 5
+rysgran.plot ("mean" , "sort" , data = camargo2001, method="folk", pch=19)
+
+
 #ternary diagram of Shepard
-library (rysgran)
-data (camargo2001)
-tab <- camargo2001
-percent <- class.percent(tab, mode="total", empty.col=FALSE, lang="en-US")
-rysgran.ternary  (x = percent[2:4], method = "shepard")
+percent <- class.percent(camargo2001, mode="total")
+x<-percent[2:4]
+rysgran.ternary  (x, method= "shepard", pch=19)
 }
