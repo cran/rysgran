@@ -1,4 +1,4 @@
-others.methods<-function(clz, vbz, method, output = "phi"){
+other.methods<-function(clz, vbz, method, output = "phi"){
   if(output == "metric"){
     r <- length(clz)
     soma <- sum(vbz)

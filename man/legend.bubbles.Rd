@@ -4,7 +4,7 @@
 \description{  This functions can be used to add legends to bubble plots  }
 \usage{
 legend.bubbles (x, y = NULL, z = NULL, nleg = NULL, digits = NULL, 
-  pch, z.cex.range = NULL, x.intersp = 1, y.intersp = 1, ...)
+  pch, z.cex.range = NULL, x.intersp = 1, y.intersp = 1, bg="white",...)
 }
 \arguments{
   \item{x, y}{  the x and y co-ordinates to be used to position the legend. They can be specified by keyword or in any way which is accepted by xy.coords. The location may also be specified by setting x to a single keyword from the list "bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center". This places the legend on the inside of the plot frame at the given location. Partial argument matching is used. The optional inset argument specifies how far the legend is inset from the plot margins. If a single value is given, it is used for both margins; if two values are given, the first is used for x- distance, the second for y-distance  }
@@ -15,6 +15,7 @@ legend.bubbles (x, y = NULL, z = NULL, nleg = NULL, digits = NULL,
   \item{z.cex.range}{  vector of length 2. Minimum and maximum 'cex' of the bubbles plotted. Replace the argument \code{pt.cex}. Must be the same used on plotting  }
   \item{x.intersp}{  character interspacing factor for horizontal (x) spacing  }
   \item{y.intersp}{  the same for vertical (y) line distances  }
+  \item{bg}{  the background color for the legend box  }
   \item{\dots}{  further graphical parameters. See legend() for additional options  }
 }
 \details{  This is a "wrapper" function for legend() that adds bubbles - legend() should be consulted for details.\code{\link{legend.bubbles}} was designed to plot legends to bubbles for the \code{\link{rysgran.plot}} and \code{\link{rysgran.ternary}} functions. For this, the values of \code{z}, \code{z.cex.range} and \code{pch} should be the same used to plot the graph and \code{\link{legend.bubbles}}. To avoid problems with overlapping symbols and characters due to the different sizes of \code{pch}, arguments \code{x.intersp}, \code{y.intersp} and \code{cex} should be adjusted accordingly. Note that the option 'bty="n"' from legend is hardcoded to avoid overlapping  }

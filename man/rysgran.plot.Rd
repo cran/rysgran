@@ -4,8 +4,8 @@
 \description{  rysgran.plot generates a bivariated plot of grain size statistical parameters passed by \code{\link{gran.stats}} function  }
 \usage{
 rysgran.plot(x = NULL, y = NULL, data = NULL, output = "phi", lang = "en-US", 
-    method= "folk", main = NULL, xlab = NULL, ylab = NULL, 
-    show.labels = FALSE, label.points = FALSE, pch = 1, 
+    method= "folk", main = NULL, xlab = NULL, ylab = NULL, show.grid=TRUE,
+    show.labels = FALSE, label.points = FALSE, pch = 19, 
     col.labels = "black", labels = NULL, col = "black", 
     cex.labels = 1, cex.points=1,
     pos = 1, z.cex.range = NULL, z = NULL, ...)
@@ -20,9 +20,10 @@ rysgran.plot(x = NULL, y = NULL, data = NULL, output = "phi", lang = "en-US",
   \item{main}{  an overall title for the plot. If NULL it will be generated an automatic title according to language chosen. Default is NULL  }
   \item{xlab}{  a title for the x axis. If NULL it will be generated an automatic title according to language chosen. Default is NULL  }
   \item{ylab}{  a title for the y axis. If NULL it will be generated an automatic title according to language chosen. Default is NULL  }
+  \item{show.grid}{  logical. If TRUE lines are plotted on the verbal classifications of x and y axes. Default is TRUE  }
   \item{show.labels}{  logical. If TRUE the points are replaced by text passed by \code{labels} argument. Default is FALSE  }
   \item{label.points}{  logical. if TRUE text is added, provided by the argument \code{labels}, with the points on the graph. the text position to the point should be changed by argument \code{pos}. \code{labels.points} will be automatically FALSE if \code{show.labels} is TRUE. The default is FALSE  }
-  \item{pch}{  Either an integer specifying a symbol or a single character to be used as the default in plotting points. Default is "1"  }
+  \item{pch}{  Either an integer specifying a symbol or a single character to be used as the default in plotting points. Default is "19"  }
   \item{col.labels}{  color of text if the arguments \code{show.label}, \code{label.points} or \code{z} are defined. Default is "black"  }
   \item{labels}{  a character vector or expression specifying the text to be written. If NULL \code{labels} will be the row names of the \code{data} argument. Default is NULL  }
   \item{col}{  symbol color used in \code{pch} argument. Default is "black"  }

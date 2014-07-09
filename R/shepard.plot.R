@@ -34,12 +34,12 @@ lty.grid = par("lty"))
 
  par(xpd = TRUE)
 
- par(srt = 60) 
+ par(srt = 57) 
  xoffset <- 0.03 
  yoffset <- 0.02    
  text(lx1 - xoffset, ly1 + yoffset, tick.labels$l, cex = cex.axis, adj = 0.5, col= col.axis)
 
- par(srt = 300)
+ par(srt = 303)
  xoffset <- 0.022
  yoffset <- 0.017
  text(rx2 + xoffset, ry1 + yoffset, tick.labels$r, cex = cex.axis, adj=0.5, col= col.axis)
@@ -90,17 +90,17 @@ lty.grid = par("lty"))
   if(show.names==FALSE)
    warning ("if is TRUE show.legend show.names should also be TRUE")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e")
-   legend("topleft",c("1 - Clay","2 - Sandy clay","3 - Sily clay",
-"4 - Sandy sily clay","5 - Clayey sand","6 - Sily clayey sand",
+   legend("topleft",c("1 - Clay","2 - Sandy clay","3 - Silty clay",
+"4 - Sandy silty clay","5 - Clayey sand","6 - Silty clayey sand",
 "7 - Sandy clayey silt","8 - Clayey silt","9 - Sand",
-"10 - Sily sand","11 - Sandy silt","12 - Silt"), 
-lty=0, col = "black" ,horiz=FALSE, cex=0.9, box.lty=0)
+"10 - Silty sand","11 - Sandy silt","12 - Silt"),  bty="n",
+col = "black" ,horiz=FALSE, cex=cex.axis)
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
    legend("topleft",c("1 - Argila","2 - Argila arenosa","3 - Argila s\u00EDltica",
 "4 - Argila s\u00EDltico-arenosa","5 - Areia argilosa","6 - Areia s\u00EDltico-argilosa",
 "7 - Silte argilo-arenoso","8 - Silte argiloso","9 - Areia",
-"10 - Areia s\u00EDltica","11 - Silte arenoso","12 - Silte"), 
-lty=0, col = "black" ,horiz=FALSE, cex=0.9, box.lty=0)
+"10 - Areia s\u00EDltica","11 - Silte arenoso","12 - Silte"),bty="n",
+          col = "black" ,horiz=FALSE, cex=cex.axis)
  }
 }
 

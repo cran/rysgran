@@ -30,7 +30,7 @@ b = c("10%","","","","50%","","","","90%"))
 
  par(xpd = TRUE)
  
- par(srt = 300) 
+ par(srt = 303) 
  xoffset <- 0.022 
  yoffset <- 0.017 
  text(rx + xoffset, ry + yoffset, tick.labels$r, cex= cex.axis,adj=0.5, col= col.axis)
@@ -78,14 +78,12 @@ b = c("10%","","","","50%","","","","90%"))
    warning ("if is TRUE show.legend show.names should also be TRUE")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e")
    legend("topleft",c("Hydrodynamics","I - Low","II - Moderate",
-"II - High", "IV - Very high","","Sand","A - 90-100%","B - 50-90%",
-"C - 10-50%","D - 00-10%"), 
-lty=0, col = "black",horiz=FALSE, cex=1, box.lty=0)
+"III - High", "IV - Very high","","Sand","A - 90-100%","B - 50-90%",
+"C - 10-50%","D - 00-10%"), bty="n", col = "black",horiz=FALSE, cex=cex.axis)
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
    legend("topleft",c("Hidrodin\u00E2mica","I - Baixa","II - Moderada",
-"II - Alta", "IV - Muito alta","","Areia","A - 90-100%","B - 50-90%",
-"C - 10-50%","D - 00-10%"), 
-lty=0, col = "black",horiz=FALSE, cex=1, box.lty=0)
+"III - Alta", "IV - Muito alta","","Areia","A - 90-100%","B - 50-90%",
+"C - 10-50%","D - 00-10%"),  bty="n", col = "black",horiz=FALSE, cex=cex.axis)
  }
 }
 

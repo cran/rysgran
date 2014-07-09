@@ -1,6 +1,6 @@
 legend.bubbles <-
 function (x, y=NULL, z=NULL, nleg=NULL, digits=NULL, pch, 
-z.cex.range=NULL, x.intersp=1, y.intersp=1,...)
+z.cex.range=NULL, x.intersp=1, y.intersp=1, bg="white", ...)
 
 {
   if ( is.null ( x )) stop ("x is missing")
@@ -15,5 +15,5 @@ z.cex.range=NULL, x.intersp=1, y.intersp=1,...)
 
   cex.bubbles <- as.numeric ( TT.str ( z , z.cex.range [ 1 ] , z.cex.range [ 2 ] ))
   
-  legend ( x = x , y = y , legend = z , pch = pch , pt.cex = cex.bubbles , bty = "n" , x.intersp = x.intersp , y.intersp = y.intersp , ...)
+  legend ( x = x , y = y , legend = z , pch = pch , pt.cex = cex.bubbles , x.intersp = x.intersp , y.intersp = y.intersp , bg=bg,...)
 }

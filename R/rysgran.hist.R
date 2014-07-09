@@ -2,7 +2,7 @@ rysgran.hist <-
 function (data, subset = NULL, which = NULL, ordered=TRUE) 
 {
  phi <- data[1, ]
- if (sum(phi) > 70){
+ if (sum(phi) > 550){
    phi<-(-log2(phi/1000))
    phi<-round(phi,digits=1)
  }

@@ -1,7 +1,7 @@
 \name{rysgran.ternary}
 \alias{rysgran.ternary}
-\title{Generates the Ternary Diagrams of Shepard and Pejrup}
-\description{  Uses data from percentages of soil textures to generate ternary diagrams of Shepard (Shepard, 1954) and Pejrup (Pejrup, 1988)  }
+\title{Generates the Ternary Diagrams of Shepard, Pejrup  and Flemming}
+\description{  Uses data from percentages of soil textures to generate ternary diagrams of Shepard (Shepard, 1954), Pejrup (Pejrup, 1988)  and Flemming (Flemming, 2000)  }
 \usage{
 rysgran.ternary(x = NULL, method = "shepard", lang = "en-US", 
     main= NULL, z= NULL, show.labels=FALSE, label.points=FALSE,
@@ -10,11 +10,11 @@ rysgran.ternary(x = NULL, method = "shepard", lang = "en-US",
     z.cex.range= NULL, cex.labels= 1, cex.points=1, cex.axis=1,
     cex.names = 0.8, col.names = "gray2", col = "black",
     col.labels= "black", col.axis= "black", col.lines= "black",
-    col.grid = "gray", pos = 1, pch = 1, lty.grid = 3, ...)
+    col.grid = "gray", pos = 1, pch = 19, lty.grid = 3, ...)
 }
 \arguments{
-  \item{x}{  a 3 columns matrix with percentages of Sand, Silt and Clay which should be passed by \code{\link{class.percent}} function. The sum of each row must be 100 or 1, otherwise there may be distortions in the position of the points  }
-  \item{method}{  shape of ternary diagram to be created. Should be "shepard" or "pejrup". Default is "shepard"  }
+  \item{x}{  a 3 columns matrix with percentages of Sand, Silt and Clay (exactly in this order) which should be passed by \code{\link{class.percent}} function. The sum of each row must be 100 or 1, otherwise there may be distortions in the position of the points  }
+  \item{method}{  shape of ternary diagram to be created. Should be "shepard", "pejrup" or "flemming". Default is "shepard"  }
   \item{lang}{  language . Should be English ("en-US", "en-GR", "eng", "e"), or Portuguese ("pt-BR", "pt-PT", "port", "p"). The default is "en-US"  }
   \item{main}{  an overall title for the plot. If NULL it will be generated an automatic title according to language chosen. Default is NULL  }
   \item{z}{  vector with the same length of \code{x} and \code{y} whose value must be used to define the points expansion factor and color (bubble plot). If NULL, a simple plot is drawn (no 'bubbles'). Default is "NULL"  }
@@ -38,13 +38,15 @@ rysgran.ternary(x = NULL, method = "shepard", lang = "en-US",
   \item{col.lines}{  color of lines that separate the textural classes case the argument \code{show.lines} is TRUE. Default is "black"  }
   \item{col.grid}{  color of grid lines case the argument \code{show.grid} is TRUE. Default is "gray"  }
   \item{pos}{  a position specifier for the text. Values of 1, 2, 3 and 4, respectively, indicate positions below, to the left of, above and to the right of the specified coordinates. Default is "1"  }
-  \item{pch}{  either an integer specifying a symbol or a single character to be used as the default in plotting points. Default is "1"  }
+  \item{pch}{  either an integer specifying a symbol or a single character to be used as the default in plotting points. Default is "19"  }
   \item{lty.grid}{  type of grid line case the argument \code{show.grid} is TRUE. Default is "3"  }
   \item{\dots}{  further graphical parameters  }
 }
 \details{  When \code{z} argument is used to draw bubble plots the \code{\link{legend.bubbles}} function should be used to draw the legend accordingly  }
 \value{  Display a triangular plot  }
 \references{
+- Flemming, B. W. (2000) A revised textural classification of gravel-free muddy sediments on the basis of ternary diagrams. \emph{Continental Shelf Research}, \bold{20}:1125--1137.
+
 - Pejrup, M. (1988) The triangular diagram used for classification of estuarine sediments: a new approach. in: \emph{Tide-influenced sedimentary environments and facies}. BOER, P.L. ; GELDER, A. & NIO, S.D. (Eds). D. Reidel Publishing Company. Holland.\cr 
 
 - Shepard, F. P. (1954) Nomenclature based on sand-silt-clay ratios. \emph{Journal Sedimentary Petrology}, \bold{24}:151--158.
@@ -71,6 +73,10 @@ percent <- class.percent(camargo2001, mode="total")
 x<-percent[2:4] #choosing only the 'sand', 'silt' and 'clay' columns
 rysgran.ternary  (x, method = "pejrup")
 
+#Flemming diagram
+percent <- class.percent(camargo2001, mode="total")
+x<-percent[2:4] #choosing only the 'sand', 'silt' and 'clay' columns
+rysgran.ternary  (x, method = "flemming")
 
 #Shepard diagram with show.labels
 percent <- class.percent(camargo2001, mode="total")

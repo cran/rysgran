@@ -10,8 +10,8 @@ English and Portuguese languages are supported in outputs  }
 \tabular{ll}{
 Package: \tab rysgran\cr
 Type: \tab Package\cr
-Version: \tab 2.0\cr
-Date: \tab 2012-03-10\cr
+Version: \tab 2.1.0\cr
+Date: \tab 2014-07-09\cr
 License: \tab GPL (>= 2.0)\cr
 LazyLoad: \tab yes\cr
 }
@@ -21,7 +21,7 @@ LazyLoad: \tab yes\cr
   Mauricio G. Camargo (\email{camargo.ufpr@gmail.com})\cr
   Leonardo Sandrini (\email{leonardosandrini@gmail.com})
 
-Maintainer:   Eliandro R. Gilbert (\email{eliandrogilbert@gmail.com})
+Maintainer:   Eliandro Ronael Gilbert (\email{eliandrogilbert@gmail.com})
 }
 \references{
 - Camargo, M. G. (2006) SysGran: um sistema de codigo aberto para analises granulometricas do sedimento. \emph{Revista Brasileira de Geociencias}, \bold{345}: 345--352.\cr

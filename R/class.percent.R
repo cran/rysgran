@@ -2,7 +2,7 @@ class.percent <-
 function(data, mode="both", empty.col=FALSE, lang="en-US")
 {
  clz <- as.numeric(data[1,])
- if (sum(clz) > 70){
+ if (sum(clz) > 550){
    clz<-(-log2(clz/1000))
  }
 
@@ -12,13 +12,13 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
 
  if (mode=="both")
  {
-  tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
+  tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p")
    colnames(tab.res) <- c("Cascalho","Areia","Silte","Argila","Matac\u00E3o","Calhau","Seixo","Gr\u00E2nulo","Areia.Muito.Grossa",
-"Areia.Grossa","Areia.M\u00E9dia","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.M\u00E9dio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.M\u00E9dia")
+"Areia.Grossa","Areia.M\u00E9dia","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.M\u00E9dio","Silte.Fino","Silte.Muito.Fino","Argilas")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e")
    colnames(tab.res) <- c("Gravel","Sand","Silt","Clay","Boulder","Cobble","Pebble","Granules","Very.Coarse.Sand",
-"Coarse.Sand","Medium.Sand","Fine.Sand","Very.Fine.Sand","Coarse.Silt","Medium.Silt","Fine.Silt","Very.Fine.Silt","Coarse.Clay","Medium.Clay")
+"Coarse.Sand","Medium.Sand","Fine.Sand","Very.Fine.Sand","Coarse.Silt","Medium.Silt","Fine.Silt","Very.Fine.Silt","Clays")
  }
 
  if (mode=="total")
@@ -32,13 +32,13 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
 
  if (mode=="classes")
  {
-  tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
+  tab.res <- as.data.frame(cbind(tab.res,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA))
   if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p") 
    colnames(tab.res) <- c("Matac\u00E3o","Calhau","Seixo","Gr\u00E2nulo","Areia.Muito.Grossa",
-"Areia.Grossa","Areia.M\u00E9dia","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.M\u00E9dio","Silte.Fino","Silte.Muito.Fino","Argila.Grossa","Argila.M\u00E9dia")
+"Areia.Grossa","Areia.M\u00E9dia","Areia.Fina","Areia.Muito.Fina","Silte.Grosso","Silte.M\u00E9dio","Silte.Fino","Silte.Muito.Fino","Argilas")
   if (lang=="en-US" | lang=="en-GR"| lang=="eng"| lang=="e") 
    colnames(tab.res) <- c("Boulder","Cobble","Pebble","Granules","Very.Coarse.Sand",
-"Coarse.Sand","Medium.Sand","Fine.Sand","Very.Fine.Sand","Coarse.Silt","Medium.Silt","Fine.Silt","Very.Fine.Silt","Coarse.Clay","Medium.Clay")
+"Coarse.Sand","Medium.Sand","Fine.Sand","Very.Fine.Sand","Coarse.Silt","Medium.Silt","Fine.Silt","Very.Fine.Silt","Clays")
  }
 
  for (j in 1:nrow(tab)) 
@@ -65,8 +65,7 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
   p.medium.silt <- 0 
   p.fine.silt <- 0 
   p.very.fine.silt <- 0 
-  p.coarse.clay <- 0 
-  p.medium.clay <- 0 
+  p.clays <- 0 
 
   for (i in 2:r) 
   {
@@ -83,15 +82,14 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
    if ((clz [i] > 5) & (clz [i] <= 6)) p.medium.silt <- p.medium.silt + vfz[i]
    if ((clz [i] > 6) & (clz [i] <= 7)) p.fine.silt <- p.fine.silt + vfz[i]
    if ((clz [i] > 7) & (clz [i] <= 8)) p.very.fine.silt <- p.very.fine.silt + vfz[i]
-   if ((clz [i] > 8) & (clz [i] <= 9)) p.coarse.clay <- p.coarse.clay + vfz[i]
-   if (clz [i] > 9) p.medium.clay <- p.medium.clay + vfz[i]
+   if (clz [i] > 8) p.clays <- p.clays + vfz[i]
   
 
    p.sand <- p.very.coarse.sand + p.coarse.sand + p.medium.sand + p.fine.sand + p.very.fine.sand   
    p.silt <- p.coarse.silt + p.medium.silt + p.fine.silt + p.very.fine.silt  
-   p.clay <- p.coarse.clay + p.medium.clay   
+   p.clay <- p.clays   
    p.gravel <- 100 -(p.sand + p.silt + p.clay) 
-   if (p.gravel < 0.001) p.gravel <-0   
+   if (p.gravel < 0.0001) p.gravel <-0   
   }
 
   if (mode=="both") 
@@ -113,8 +111,7 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
    tab.res[j,15] <- p.medium.silt
    tab.res[j,16] <- p.fine.silt
    tab.res[j,17] <- p.very.fine.silt
-   tab.res[j,18] <- p.coarse.clay
-   tab.res[j,19] <- p.medium.clay
+   tab.res[j,18] <- p.clays
   } 
 
   if (mode=="classes") 
@@ -132,8 +129,7 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
    tab.res[j,11] <- p.medium.silt
    tab.res[j,12] <- p.fine.silt
    tab.res[j,13] <- p.very.fine.silt
-   tab.res[j,14] <- p.coarse.clay
-   tab.res[j,15] <- p.medium.clay
+   tab.res[j,14] <- p.clays
   }
 
   if (mode=="total") 
@@ -147,14 +143,19 @@ function(data, mode="both", empty.col=FALSE, lang="en-US")
 
  if (empty.col==FALSE) 
  {
-  for (k in 1:length(tab.res)) 
-  {
-   if (sum(tab.res[k]) > 0.0000001)
+   for (k in 1:length(tab.res)) 
    {
-    m<-m+1
-    if (m==1) {output<-tab.res[k]} else {output[m]<-tab.res[k]}
+     if (colnames(tab.res[k])=="Sand" | colnames(tab.res[k])=="Silt" | colnames(tab.res[k])=="Clay" | colnames(tab.res[k])=="Areia" | colnames(tab.res[k])=="Silte" | colnames(tab.res[k])=="Argila"){
+       m<-m+1   
+       output[m]<-tab.res[k]
+       next
+     }
+     if (sum(tab.res[k]) > 0.0001)
+     {
+       m<-m+1
+       if (m==1) {output<-tab.res[k]} else {output[m]<-tab.res[k]}
+     }
    }
-  }
  }
  else {output<-tab.res} 
 

@@ -14,8 +14,7 @@ class.mean<-function(mean, output, lang){
       if ((mean > 5) & (mean <= 6)) {return("Medium silt")}
       if ((mean > 6) & (mean <= 7)) {return("Fine silt")}
       if ((mean > 7) & (mean <= 8)) {return("Very fine silt")}
-      if ((mean > 8) & (mean <= 9)) {return("Coarse clay")}
-      if (mean > 9) {return("Clay")}
+      if (mean > 8) {return("Clay")}
       }
     if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p"){
       if (mean <= -8) {return("Matac\u00E3o")}
@@ -31,8 +30,7 @@ class.mean<-function(mean, output, lang){
       if ((mean > 5) & (mean <= 6)) {return("Silte m\u00E9dio")}
       if ((mean > 6) & (mean <= 7)) {return("Silte fino")}
       if ((mean > 7) & (mean <= 8)) {return("Silte muito fino")}
-      if ((mean > 8) & (mean <= 9)) {return("Argila grossa")}
-      if (mean > 9) {return("Argila")}
+      if (mean > 8) {return("Argila")}
       }
     }
   if (output == "metric"){
@@ -50,8 +48,7 @@ class.mean<-function(mean, output, lang){
       if ((mean > 16) & (mean <= 31)) {return("Medium silt")}
       if ((mean > 8) & (mean <= 16)) {return("Fine silt")}
       if ((mean > 4) & (mean <= 8)) {return("Very fine silt")}
-      if ((mean > 2) & (mean <= 4)) {return("Coarse clay")}
-      if (mean <= 2) {return("Clay")}
+      if (mean <= 4) {return("Clay")}
       }
     if (lang=="pt-BR" | lang=="pt-PT"| lang=="port"| lang=="p"){
       if (mean >= 256000) {return("Matac\u00E3o")}
@@ -67,8 +64,7 @@ class.mean<-function(mean, output, lang){
       if ((mean > 16) & (mean <= 31)) {return("Silte m\u00E9dio")}
       if ((mean > 8) & (mean <= 16)) {return("Silte fino")}
       if ((mean > 4) & (mean <= 8)) {return("Silte muito fino")}
-      if ((mean > 2) & (mean <= 4)) {return("Argila grossa")}
-      if (mean <= 2) {return("Argila")}
+      if (mean <= 4) {return("Argila")}
       }
     }
   }
